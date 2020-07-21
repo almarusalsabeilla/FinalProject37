@@ -13,11 +13,11 @@ class CreateQuestionTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('question_post', function (Blueprint $table) {
+        Schema::create('question_tag', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('question_id');
+            $table->bigInteger('tag_id');
             $table->timestamps();
-            $table->unsignedBigInteger('tag_id');
-            $table->unsignedBigInteger('question_id');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateQuestionTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_post');
+        Schema::dropIfExists('question_tag');
     }
 }
